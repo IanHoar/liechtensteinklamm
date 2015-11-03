@@ -3,7 +3,7 @@ import Liechtensteinklamm
 
 class SplitViewControllerDelegate: SplitViewDelegate {}
 
-extension SplitViewControllerDelegate: SplitViewCustomContainers {
+extension SplitViewControllerDelegate: SplitViewControllerCustomContainers {
 
   var collapsedContainerClass: UINavigationController.Type {
     return CustomNavigationController.self

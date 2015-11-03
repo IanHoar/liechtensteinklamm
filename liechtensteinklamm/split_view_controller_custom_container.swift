@@ -1,15 +1,13 @@
 import UIKit
 
-public protocol SplitViewCustomContainers {
+public protocol SplitViewControllerCustomContainers {
 
   var expandingContainerClass: UINavigationController.Type { get }
   var collapsedContainerClass: UINavigationController.Type { get }
-  func primaryViewControllerForExpandingSplitViewController(splitViewController: UISplitViewController) -> UIViewController?
-  func primaryViewControllerForCollapsingSplitViewController(splitViewController: UISplitViewController) -> UIViewController?
 
 }
 
-extension SplitViewCustomContainers {
+extension SplitViewControllerCustomContainers {
 
   public var expandingContainerClass: UINavigationController.Type {
     return UINavigationController.self
