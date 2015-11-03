@@ -30,6 +30,7 @@
 		2DB505691BE1C87F000E8B82 /* split_view_controller_partitioner_spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB505681BE1C87F000E8B82 /* split_view_controller_partitioner_spec.swift */; };
 		2DBF9F061BE1CD6700952078 /* ui_view+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBF9F051BE1CD6700952078 /* ui_view+constraints.swift */; };
 		2DC473921BE7E54B00654492 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 2DC473911BE7E54B00654492 /* README.md */; };
+		2DDA78E11BE9049100086CA4 /* create_containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDA78E01BE9049100086CA4 /* create_containers.swift */; };
 		2DECB21A1BE6CF000059694C /* split_view_default_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECB2181BE6C9160059694C /* split_view_default_view_controller.swift */; };
 		2DECB21C1BE6CFBF0059694C /* empty_state_view_controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECB21B1BE6CFBF0059694C /* empty_state_view_controller.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		2DB505681BE1C87F000E8B82 /* split_view_controller_partitioner_spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = split_view_controller_partitioner_spec.swift; sourceTree = "<group>"; };
 		2DBF9F051BE1CD6700952078 /* ui_view+constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ui_view+constraints.swift"; sourceTree = "<group>"; };
 		2DC473911BE7E54B00654492 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2DDA78E01BE9049100086CA4 /* create_containers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = create_containers.swift; sourceTree = "<group>"; };
 		2DECB2181BE6C9160059694C /* split_view_default_view_controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = split_view_default_view_controller.swift; sourceTree = "<group>"; };
 		2DECB21B1BE6CFBF0059694C /* empty_state_view_controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = empty_state_view_controller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +178,7 @@
 		2DB5053D1BE197C1000E8B82 /* Liechtensteinklamm */ = {
 			isa = PBXGroup;
 			children = (
+				2DDA78E01BE9049100086CA4 /* create_containers.swift */,
 				2DB505351BE11661000E8B82 /* preferred_split_view_position.swift */,
 				2DA321FA1BE8E27B005B0895 /* split_view_controller_container.swift */,
 				2D8A8D661BE25A0C009ECBF8 /* split_view_controller_custom_container.swift */,
@@ -390,6 +393,7 @@
 				2DA321FC1BE8E286005B0895 /* split_view_controller_container.swift in Sources */,
 				2D8A8D651BE1D120009ECBF8 /* split_view_position.swift in Sources */,
 				2DB505651BE1C612000E8B82 /* preferred_split_view_position.swift in Sources */,
+				2DDA78E11BE9049100086CA4 /* create_containers.swift in Sources */,
 				2DC473921BE7E54B00654492 /* README.md in Sources */,
 				2D8A8D681BE26301009ECBF8 /* split_view_controller_custom_container.swift in Sources */,
 			);

@@ -38,11 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window = window
     window.rootViewController = self.splitViewController
 
+    self.splitViewController.viewControllers = createContainersForSplitViewController(splitViewController,
+      primaryViewControllers: [TableViewController()],
+      secondaryViewControllers: [EmptyStateViewController()])
 
-    self.splitViewController.viewControllers = [
-      UINavigationController(rootViewController: TableViewController()),
-      UINavigationController(rootViewController: EmptyStateViewController())
-    ]
     window.makeKeyAndVisible()
 
     return true
