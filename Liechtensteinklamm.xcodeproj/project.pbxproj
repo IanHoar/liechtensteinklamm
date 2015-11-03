@@ -95,6 +95,7 @@
 		2DB505661BE1C833000E8B82 /* split_view_controller_partitioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = split_view_controller_partitioner.swift; sourceTree = "<group>"; };
 		2DB505681BE1C87F000E8B82 /* split_view_controller_partitioner_spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = split_view_controller_partitioner_spec.swift; sourceTree = "<group>"; };
 		2DBF9F051BE1CD6700952078 /* ui_view+constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ui_view+constraints.swift"; sourceTree = "<group>"; };
+		2DC473911BE7E54B00654492 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +130,7 @@
 		2DB5050F1BE0F0CF000E8B82 = {
 			isa = PBXGroup;
 			children = (
+				2DC473911BE7E54B00654492 /* README.md */,
 				2DB5053D1BE197C1000E8B82 /* Liechtensteinklamm */,
 				2DB5051A1BE0F0CF000E8B82 /* Example */,
 				2DB5054E1BE19A3E000E8B82 /* Tests */,
@@ -376,6 +378,7 @@
 				2D8A8D651BE1D120009ECBF8 /* split_view_position.swift in Sources */,
 				2DB505651BE1C612000E8B82 /* preferred_split_view_position.swift in Sources */,
 				2D8A8D681BE26301009ECBF8 /* split_view_custom_container.swift in Sources */,
+				2DC473921BE7E54B00654492 /* README.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
