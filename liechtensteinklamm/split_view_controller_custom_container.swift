@@ -2,14 +2,19 @@ import UIKit
 
 public protocol SplitViewControllerCustomContainers {
 
-  var expandingContainerClass: UINavigationController.Type { get }
+  var expandedPrimaryContainerClass: UINavigationController.Type { get }
+  var expandedSecondaryContainerClass: UINavigationController.Type { get }
   var collapsedContainerClass: UINavigationController.Type { get }
 
 }
 
 extension SplitViewControllerCustomContainers {
 
-  public var expandingContainerClass: UINavigationController.Type {
+  public var expandedPrimaryContainerClass: UINavigationController.Type {
+    return UINavigationController.self
+  }
+
+  public var expandedSecondaryContainerClass: UINavigationController.Type {
     return UINavigationController.self
   }
 

@@ -6,7 +6,15 @@ class SplitViewControllerDelegate: SplitViewDelegate {}
 extension SplitViewControllerDelegate: SplitViewControllerCustomContainers {
 
   var collapsedContainerClass: UINavigationController.Type {
+    return GreenNavigationController.self
+  }
+
+  var expandedSecondaryContainerClass: UINavigationController.Type {
     return CustomNavigationController.self
+  }
+
+  var expandedPrimaryContainerClass: UINavigationController.Type {
+    return MagentaNavigationController.self
   }
 
 }

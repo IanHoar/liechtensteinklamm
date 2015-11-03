@@ -17,7 +17,7 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
   public func primaryViewControllerForExpandingSplitViewController(splitViewController: UISplitViewController) -> UIViewController? {
     if let customContainerSelf = self as? SplitViewControllerCustomContainers {
       if let navigationController = splitViewController.viewControllers.first as? UINavigationController {
-        let container = customContainerSelf.expandingContainerClass.init(nibName: nil, bundle: nil)
+        let container = customContainerSelf.expandedPrimaryContainerClass.init(nibName: nil, bundle: nil)
         container.view.frame = splitViewController.view.bounds
         container.setViewControllers(navigationController.viewControllers, animated: false)
         return container
@@ -60,11 +60,18 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
 
       if let navigationController = primaryViewController as? UINavigationController {
         let (primary, secondary) = navigationController.partitionViewControllers(splitViewController)
-        navigationController.setViewControllers(primary, animated: false)
+
+        // Calling `setViewControllers` with the same view controller, that has 
+        // a different parent view controller, raises an 
+        // `UIViewControllerHierarchyInconsistency`. We therefor have to make 
+        // sure they are not the same.
+        if primary != navigationController.viewControllers {
+          navigationController.setViewControllers(primary, animated: false)
+        }
 
         let secondaryNavigationController: UINavigationController
         if let customContainerSelf = self as? SplitViewControllerCustomContainers {
-          secondaryNavigationController = customContainerSelf.expandedPrimaryContainerClass.init(nibName: nil, bundle: nil)
+          secondaryNavigationController = customContainerSelf.expandedSecondaryContainerClass.init(nibName: nil, bundle: nil)
         } else {
           secondaryNavigationController = UINavigationController()
         }
