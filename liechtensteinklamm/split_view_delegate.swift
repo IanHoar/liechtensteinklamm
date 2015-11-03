@@ -40,9 +40,9 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
     collapseSecondaryViewController secondaryViewController: UIViewController,
     ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
 
-      if let navigationController = secondaryViewController as? UINavigationController,
+      if let navigationController = secondaryViewController as? SplitViewControllerContainer,
         let primaryViewController = primaryViewController as? UINavigationController {
-          let secondaryViewControllers = navigationController.viewControllers.filter({ viewController -> Bool in
+          let secondaryViewControllers = navigationController.containedViewControllers(splitViewController).filter({ viewController -> Bool in
             if let viewController = viewController as? SplitViewExcludeViewController {
               return viewController.excludeViewController(splitViewController) == false
             }
