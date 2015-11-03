@@ -57,7 +57,12 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
         navigationController.setViewControllers(primary, animated: false)
         let secondaryNavigationController = UINavigationController()
         secondaryNavigationController.view.frame = splitViewController.view.bounds
-        secondaryNavigationController.setViewControllers(Array(secondary), animated: false)
+        if let primary = primary.last as? SplitViewDefaultViewController where secondary.count == 0 {
+          let viewController = primary.defaultViewController(splitViewController)
+          secondaryNavigationController.setViewControllers([viewController], animated: false)
+        } else {
+          secondaryNavigationController.setViewControllers(Array(secondary), animated: false)
+        }
         return secondaryNavigationController
       }
       return nil

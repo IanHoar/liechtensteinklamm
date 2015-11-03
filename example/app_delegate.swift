@@ -33,12 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     self.splitViewController.viewControllers = [
       UINavigationController(rootViewController: TableViewController()),
-      UINavigationController(rootViewController: ViewController(index: 0))
+      UINavigationController(rootViewController: EmptyStateViewController())
     ]
     window.makeKeyAndVisible()
 
     return true
   }
-
 
 }

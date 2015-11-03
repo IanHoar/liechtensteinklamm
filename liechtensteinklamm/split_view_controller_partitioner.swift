@@ -29,4 +29,3 @@ extension UINavigationController: SplitViewControllerPartitioner {
   }
   
 }
-

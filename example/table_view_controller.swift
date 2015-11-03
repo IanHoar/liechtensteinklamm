@@ -37,6 +37,14 @@ class TableViewController: UITableViewController {
   
 }
 
+extension TableViewController: SplitViewDefaultViewController {
+
+  func defaultViewController(splitViewController: UISplitViewController) -> UIViewController {
+    return EmptyStateViewController()
+  }
+
+}
+
 extension TableViewController: PreferredSplitViewPosition {
 
   func preferredSplitViewPositionForSplitViewController(splitViewController: UISplitViewController) -> SplitViewPosition {
