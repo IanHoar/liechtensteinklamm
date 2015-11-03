@@ -42,7 +42,13 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
 
       if let navigationController = secondaryViewController as? UINavigationController,
         let primaryViewController = primaryViewController as? UINavigationController {
-          primaryViewController.setViewControllers(primaryViewController.viewControllers + navigationController.viewControllers, animated: false)
+          let secondaryViewControllers = navigationController.viewControllers.filter({ viewController -> Bool in
+            if let viewController = viewController as? SplitViewExcludeViewController {
+              return viewController.excludeViewController(splitViewController) == false
+            }
+            return true
+          })
+          primaryViewController.setViewControllers(primaryViewController.viewControllers + secondaryViewControllers, animated: false)
           return true
       }
       return false
