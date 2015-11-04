@@ -2,8 +2,7 @@
   "name": "Liechtensteinklamm",
   "version": "0.1.0",
   "license": "MIT",
-  "summary": "Liechtensteinklamm is an abstraction layer of UISplitViewController’s delegate
-methods.",
+  "summary": "Liechtensteinklamm is an abstraction layer of UISplitViewController’s delegate methods.",
   "homepage": "https://github.com/mogstad/liechtensteinklamm",
   "authors": {
     "Bjarne Mogstad": "me@mogstad.co"
@@ -13,7 +12,7 @@ methods.",
     "tag": "v0.1.0"
   },
   "platforms": {
-    "ios": "8.0",
+    "ios": "8.0"
   },
   "source_files": "liechtensteinklamm/*.swift",
   "requires_arc": true
