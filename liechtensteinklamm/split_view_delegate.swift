@@ -4,10 +4,10 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
 
   public func primaryViewControllerForCollapsingSplitViewController(splitViewController: UISplitViewController) -> UIViewController? {
     if let customContainerSelf = self as? SplitViewControllerCustomContainers {
-      if let navigationController = splitViewController.viewControllers.first as? UINavigationController {
+      if let navigationController = splitViewController.viewControllers.first as? SplitViewControllerContainer {
         let container = customContainerSelf.collapsedContainerClass.init(nibName: nil, bundle: nil)
         container.view.frame = splitViewController.view.bounds
-        container.setViewControllers(navigationController.viewControllers, animated: false)
+        container.setViewControllers(navigationController.containedViewControllers(splitViewController), animated: false)
         return container
       }
     }
@@ -16,10 +16,10 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
 
   public func primaryViewControllerForExpandingSplitViewController(splitViewController: UISplitViewController) -> UIViewController? {
     if let customContainerSelf = self as? SplitViewControllerCustomContainers {
-      if let navigationController = splitViewController.viewControllers.first as? UINavigationController {
+      if let navigationController = splitViewController.viewControllers.first as? SplitViewControllerContainer {
         let container = customContainerSelf.expandedPrimaryContainerClass.init(nibName: nil, bundle: nil)
         container.view.frame = splitViewController.view.bounds
-        container.setViewControllers(navigationController.viewControllers, animated: false)
+        container.setViewControllers(navigationController.containedViewControllers(splitViewController), animated: false)
         return container
       }
     }
@@ -40,9 +40,9 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
     collapseSecondaryViewController secondaryViewController: UIViewController,
     ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
 
-      if let navigationController = secondaryViewController as? SplitViewControllerContainer,
+      if let navigationController = secondaryViewController as? UINavigationController,
         let primaryViewController = primaryViewController as? UINavigationController {
-          let secondaryViewControllers = navigationController.containedViewControllers(splitViewController).filter({ viewController -> Bool in
+          let secondaryViewControllers = navigationController.viewControllers.filter({ viewController -> Bool in
             if let viewController = viewController as? SplitViewExcludeViewController {
               return viewController.excludeViewController(splitViewController) == false
             }
