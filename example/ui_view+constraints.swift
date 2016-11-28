@@ -2,16 +2,16 @@ import UIKit
 
 extension UIView {
 
-  func addConstraintsForFullscreenSubview(subview: UIView) {
+  func addConstraintsForFullscreenSubview(_ subview: UIView) {
     subview.translatesAutoresizingMaskIntoConstraints = false
 
-    let horizontalContraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[subview]|",
-      options: .DirectionLeadingToTrailing,
+    let horizontalContraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|[subview]|",
+      options: NSLayoutFormatOptions(),
       metrics: nil,
       views: ["subview" : subview])
 
-    let verticalContraint = NSLayoutConstraint.constraintsWithVisualFormat("V:|[subview]|",
-      options: .DirectionLeadingToTrailing,
+    let verticalContraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|[subview]|",
+      options: NSLayoutFormatOptions(),
       metrics: nil,
       views: ["subview" : subview])
 
@@ -19,45 +19,45 @@ extension UIView {
     self.addConstraints(verticalContraint)
   }
 
-  func addConstraintsForCenteredSubview(subview: UIView) {
+  func addConstraintsForCenteredSubview(_ subview: UIView) {
 
     subview.translatesAutoresizingMaskIntoConstraints = false
 
     let verticalContraint = NSLayoutConstraint(
       item: subview,
-      attribute: .CenterY,
-      relatedBy: .Equal,
+      attribute: .centerY,
+      relatedBy: .equal,
       toItem: self,
-      attribute: .CenterY,
+      attribute: .centerY,
       multiplier: 1.0,
       constant: 0)
 
     let horizontalContraint = NSLayoutConstraint(
       item: subview,
-      attribute: .CenterX,
-      relatedBy: .Equal,
+      attribute: .centerX,
+      relatedBy: .equal,
       toItem: self,
-      attribute: .CenterX,
+      attribute: .centerX,
       multiplier: 1.0,
       constant: 0)
 
     let heightContraint = NSLayoutConstraint(
       item: subview,
-      attribute: .Height,
-      relatedBy: .Equal,
+      attribute: .height,
+      relatedBy: .equal,
       toItem: nil,
-      attribute: .NotAnAttribute,
+      attribute: .notAnAttribute,
       multiplier: 1.0,
-      constant: CGRectGetHeight(subview.frame))
+      constant: subview.frame.height)
 
     let widthContraint = NSLayoutConstraint(
       item: subview,
-      attribute: .Width,
-      relatedBy: .Equal,
+      attribute: .width,
+      relatedBy: .equal,
       toItem: nil,
-      attribute: .NotAnAttribute,
+      attribute: .notAnAttribute,
       multiplier: 1.0,
-      constant: CGRectGetWidth(subview.frame))
+      constant: subview.frame.width)
 
     self.addConstraints([horizontalContraint, verticalContraint, heightContraint, widthContraint])
     

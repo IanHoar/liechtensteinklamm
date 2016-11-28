@@ -4,14 +4,14 @@ import UIKit
 @testable import Liechtensteinklamm
 
 private class PrimaryViewController: UIViewController, PreferredSplitViewPosition {
-  func preferredSplitViewPositionForSplitViewController(splitViewController: UISplitViewController) -> SplitViewPosition {
-    return .Primary
+  func preferredSplitViewPositionForSplitViewController(_ splitViewController: UISplitViewController) -> SplitViewPosition {
+    return .primary
   }
 }
 
 private class SecondaryViewController: UIViewController, PreferredSplitViewPosition {
-  func preferredSplitViewPositionForSplitViewController(splitViewController: UISplitViewController) -> SplitViewPosition {
-    return .Secondary
+  func preferredSplitViewPositionForSplitViewController(_ splitViewController: UISplitViewController) -> SplitViewPosition {
+    return .secondary
   }
 }
 

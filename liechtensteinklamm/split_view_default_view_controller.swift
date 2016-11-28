@@ -2,6 +2,6 @@ import UIKit
 
 public protocol SplitViewDefaultViewController {
 
-  func defaultViewController(splitViewController: UISplitViewController) -> UIViewController
+  func defaultViewController(_ splitViewController: UISplitViewController) -> UIViewController
 
 }

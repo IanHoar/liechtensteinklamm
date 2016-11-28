@@ -4,7 +4,7 @@ import Liechtensteinklamm
 class EmptyStateViewController: UIViewController {
 
   override func viewDidLoad() {
-    self.view.backgroundColor = UIColor.redColor()
+    self.view.backgroundColor = UIColor.red
     super.viewDidLoad()
   }
 
@@ -12,7 +12,7 @@ class EmptyStateViewController: UIViewController {
 
 extension EmptyStateViewController: SplitViewExcludeViewController {
 
-  func excludeViewController(splitViewController: UISplitViewController) -> Bool {
+  func excludeViewController(_ splitViewController: UISplitViewController) -> Bool {
     return true
   }
 

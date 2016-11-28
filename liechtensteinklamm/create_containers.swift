@@ -1,6 +1,6 @@
 import UIKit
 
-public func createContainersForSplitViewController(splitViewController: UISplitViewController, primaryViewControllers: [UIViewController], secondaryViewControllers: [UIViewController]) -> [UIViewController] {
+public func createContainersForSplitViewController(_ splitViewController: UISplitViewController, primaryViewControllers: [UIViewController], secondaryViewControllers: [UIViewController]) -> [UIViewController] {
 
   let primaryNavigationController: UINavigationController
   let secondaryNavigationController: UINavigationController

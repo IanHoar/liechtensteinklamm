@@ -2,19 +2,19 @@ import UIKit
 
 public protocol SplitViewControllerPartitioner {
 
-  func partitionViewControllers(splitViewController: UISplitViewController) -> (primary: [UIViewController], secondary: [UIViewController])
+  func partitionViewControllers(_ splitViewController: UISplitViewController) -> (primary: [UIViewController], secondary: [UIViewController])
 
 }
 
 extension UINavigationController: SplitViewControllerPartitioner {
 
-  public func partitionViewControllers(splitViewController: UISplitViewController) -> (primary: [UIViewController], secondary: [UIViewController]) {
+  public func partitionViewControllers(_ splitViewController: UISplitViewController) -> (primary: [UIViewController], secondary: [UIViewController]) {
 
     if let first = self.viewControllers.first {
       var primary = Array(arrayLiteral: first)
       for viewController in self.viewControllers.dropFirst() {
         if let viewControllerPartition = viewController as? PreferredSplitViewPosition {
-          if viewControllerPartition.preferredSplitViewPositionForSplitViewController(splitViewController) == .Primary {
+          if viewControllerPartition.preferredSplitViewPositionForSplitViewController(splitViewController) == .primary {
             primary.append(viewController)
             continue
           }

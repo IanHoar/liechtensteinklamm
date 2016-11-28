@@ -1,12 +1,12 @@
 import UIKit
 
 public enum SplitViewPosition {
-  case Primary
-  case Secondary
+  case primary
+  case secondary
 }
 
 public protocol SplitViewExcludeViewController {
 
-  func excludeViewController(splitViewController: UISplitViewController) -> Bool
+  func excludeViewController(_ splitViewController: UISplitViewController) -> Bool
 
 }

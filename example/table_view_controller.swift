@@ -8,30 +8,30 @@ class TableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.title = "App"
-    self.tableView.registerClass(UITableViewCell.self,
+    self.tableView.register(UITableViewCell.self,
       forCellReuseIdentifier: TableViewControllerCellReuseIdentifier)
   }
 
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
 
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 10
   }
 
-  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     self.splitViewController?.showDetailViewController(ViewController(index: indexPath.row), sender: self)
   }
 
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(TableViewControllerCellReuseIdentifier, forIndexPath: indexPath)
-    cell.accessoryType = .DetailButton
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: TableViewControllerCellReuseIdentifier, for: indexPath)
+    cell.accessoryType = .detailButton
     cell.textLabel!.text = "\(indexPath.row)"
     return cell
   }
 
-  override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+  override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
     self.navigationController?.pushViewController(TableViewController(), animated: true)
   }
   
@@ -39,7 +39,7 @@ class TableViewController: UITableViewController {
 
 extension TableViewController: SplitViewDefaultViewController {
 
-  func defaultViewController(splitViewController: UISplitViewController) -> UIViewController {
+  func defaultViewController(_ splitViewController: UISplitViewController) -> UIViewController {
     return EmptyStateViewController()
   }
 
@@ -47,8 +47,8 @@ extension TableViewController: SplitViewDefaultViewController {
 
 extension TableViewController: PreferredSplitViewPosition {
 
-  func preferredSplitViewPositionForSplitViewController(splitViewController: UISplitViewController) -> SplitViewPosition {
-    return .Primary
+  func preferredSplitViewPositionForSplitViewController(_ splitViewController: UISplitViewController) -> SplitViewPosition {
+    return .primary
   }
 
 }
