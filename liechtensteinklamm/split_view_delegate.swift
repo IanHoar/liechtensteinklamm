@@ -1,13 +1,13 @@
 import UIKit
 
-public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
+open class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
 
   public func primaryViewControllerForCollapsingSplitViewController(splitViewController: UISplitViewController) -> UIViewController? {
     if let customContainerSelf = self as? SplitViewControllerCustomContainers {
       if let navigationController = splitViewController.viewControllers.first as? SplitViewControllerContainer {
         let container = customContainerSelf.collapsedContainerClass.init(nibName: nil, bundle: nil)
         container.view.frame = splitViewController.view.bounds
-        container.setViewControllers(navigationController.containedViewControllers(splitViewController), animated: false)
+        container.setViewControllers(navigationController.containedViewControllers(splitViewController: splitViewController), animated: false)
         return container
       }
     }
@@ -19,7 +19,7 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
       if let navigationController = splitViewController.viewControllers.first as? SplitViewControllerContainer {
         let container = customContainerSelf.expandedPrimaryContainerClass.init(nibName: nil, bundle: nil)
         container.view.frame = splitViewController.view.bounds
-        container.setViewControllers(navigationController.containedViewControllers(splitViewController), animated: false)
+        container.setViewControllers(navigationController.containedViewControllers(splitViewController: splitViewController), animated: false)
         return container
       }
     }
@@ -27,7 +27,7 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
   }
 
   public func splitViewController(splitViewController: UISplitViewController, showDetailViewController viewController: UIViewController, sender: AnyObject?) -> Bool {
-    if splitViewController.collapsed == false {
+    if splitViewController.isCollapsed == false {
       let navigationController = splitViewController.viewControllers[1] as! UINavigationController
       navigationController.setViewControllers([viewController], animated: false)
       return true
@@ -44,7 +44,7 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
         let primaryViewController = primaryViewController as? UINavigationController {
           let secondaryViewControllers = navigationController.viewControllers.filter({ viewController -> Bool in
             if let viewController = viewController as? SplitViewExcludeViewController {
-              return viewController.excludeViewController(splitViewController) == false
+                return viewController.excludeViewController(splitViewController: splitViewController) == false
             }
             return true
           })
@@ -59,7 +59,7 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
     separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController? {
 
       if let navigationController = primaryViewController as? UINavigationController {
-        let (primary, secondary) = navigationController.partitionViewControllers(splitViewController)
+        let (primary, secondary) = navigationController.partitionViewControllers(splitViewController: splitViewController)
 
         // Calling `setViewControllers` with the same view controller, that has 
         // a different parent view controller, raises an 
@@ -77,8 +77,9 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
         }
 
         secondaryNavigationController.view.frame = splitViewController.view.bounds
-        if let primary = primary.last as? SplitViewDefaultViewController where secondary.count == 0 {
-          let viewController = primary.defaultViewController(splitViewController)
+        if let primary = primary.last as? SplitViewDefaultViewController,
+            secondary.count == 0 {
+            let viewController = primary.defaultViewController(splitViewController: splitViewController)
           secondaryNavigationController.setViewControllers([viewController], animated: false)
         } else {
           secondaryNavigationController.setViewControllers(Array(secondary), animated: false)
@@ -89,7 +90,7 @@ public class SplitViewDelegate: NSObject, UISplitViewControllerDelegate {
   }
 
   public func splitViewControllerSupportedInterfaceOrientations(splitViewController: UISplitViewController) -> UIInterfaceOrientationMask {
-    return .All
+    return .all
   }
 
 }

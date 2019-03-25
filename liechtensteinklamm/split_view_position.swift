@@ -1,8 +1,8 @@
 import UIKit
 
 public enum SplitViewPosition {
-  case Primary
-  case Secondary
+  case primary
+  case secondary
 }
 
 public protocol SplitViewExcludeViewController {

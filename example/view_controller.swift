@@ -19,15 +19,15 @@ class ViewController: UIViewController {
     
     self.title = "View \(index)"
     self.label.text = "\(index)"
-    self.label.font = UIFont.systemFontOfSize(70, weight: UIFontWeightThin)
-    self.label.textColor = UIColor.lightGrayColor()
+    self.label.font = UIFont.systemFont(ofSize: 70, weight: .thin)
+    self.label.textColor = UIColor.lightGray
     self.label.sizeToFit()
     self.view.addSubview(self.label)
-    self.view.addConstraintsForCenteredSubview(self.label)
+    self.view.addConstraintsForCenteredSubview(subview: self.label)
 
-    self.view.backgroundColor = UIColor.greenColor()
+    self.view.backgroundColor = UIColor.green
 
-    if let button = self.splitViewController?.displayModeButtonItem() {
+    if let button = self.splitViewController?.displayModeButtonItem {
       self.navigationItem.leftBarButtonItem = button
       self.navigationItem.leftItemsSupplementBackButton = true
     }

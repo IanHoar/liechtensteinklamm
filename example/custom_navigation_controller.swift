@@ -4,7 +4,7 @@ class CustomNavigationController: UINavigationController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationBar.barTintColor = UIColor.redColor()
+    self.navigationBar.barTintColor = UIColor.red
   }
 
 }
@@ -13,7 +13,7 @@ class GreenNavigationController: UINavigationController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationBar.barTintColor = UIColor.greenColor()
+    self.navigationBar.barTintColor = UIColor.green
   }
 
 }
@@ -22,7 +22,7 @@ class MagentaNavigationController: UINavigationController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationBar.barTintColor = UIColor.magentaColor()
+    self.navigationBar.barTintColor = UIColor.magenta
   }
 
 }

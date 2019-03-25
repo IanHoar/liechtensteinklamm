@@ -4,7 +4,7 @@ import Liechtensteinklamm
 class EmptyStateViewController: UIViewController {
 
   override func viewDidLoad() {
-    self.view.backgroundColor = UIColor.redColor()
+    self.view.backgroundColor = UIColor.red
     super.viewDidLoad()
   }
 

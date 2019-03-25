@@ -18,17 +18,19 @@ public extension SplitViewSetViewControllers where Self: UISplitViewController {
 
   public func setPrimaryViewControllers(primaryViewControllers: [UIViewController], secondaryViewControllers: [UIViewController]) {
 
-    if let primary = self.primaryViewController where self.collapsed {
+    if let primary = self.primaryViewController,
+    self.isCollapsed {
       primary.setViewControllers(primaryViewControllers + secondaryViewControllers, animated: false)
-    } else if let primary = self.primaryViewController, secondary = self.secondaryViewController {
+    } else if let primary = self.primaryViewController, let secondary = self.secondaryViewController {
       primary.setViewControllers(primaryViewControllers, animated: false)
-      if let lastPrimaryViewController = primaryViewControllers.last as? SplitViewDefaultViewController where secondaryViewControllers.count == 0 {
-        secondary.setViewControllers([lastPrimaryViewController.defaultViewController(self)], animated: false)
+      if let lastPrimaryViewController = primaryViewControllers.last as? SplitViewDefaultViewController,
+        secondaryViewControllers.count == 0 {
+        secondary.setViewControllers([lastPrimaryViewController.defaultViewController(splitViewController: self)], animated: false)
       } else {
         secondary.setViewControllers(secondaryViewControllers, animated: false)
       }
     } else {
-      self.viewControllers = createContainersForSplitViewController(self,
+        self.viewControllers = createContainersForSplitViewController(splitViewController: self,
         primaryViewControllers: primaryViewControllers,
         secondaryViewControllers: secondaryViewControllers)
     }

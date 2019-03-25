@@ -14,7 +14,7 @@ extension UINavigationController: SplitViewControllerPartitioner {
       var primary = Array(arrayLiteral: first)
       for viewController in self.viewControllers.dropFirst() {
         if let viewControllerPartition = viewController as? PreferredSplitViewPosition {
-          if viewControllerPartition.preferredSplitViewPositionForSplitViewController(splitViewController) == .Primary {
+            if viewControllerPartition.preferredSplitViewPositionForSplitViewController(splitViewController: splitViewController) == .primary {
             primary.append(viewController)
             continue
           }

@@ -8,7 +8,7 @@ public protocol SplitViewControllerContainer {
 
 extension UINavigationController: SplitViewControllerContainer {
 
-  public func containedViewControllers(splitViewController: UISplitViewController) -> [UIViewController] {
+  @objc open func containedViewControllers(splitViewController: UISplitViewController) -> [UIViewController] {
     return self.viewControllers
   }
   

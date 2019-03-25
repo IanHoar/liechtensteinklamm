@@ -28,17 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   lazy var splitViewController: UISplitViewController = {
     let splitViewController = UISplitViewController()
     splitViewController.delegate = self.splitViewControllerDelegate
-    splitViewController.preferredDisplayMode = .AllVisible
+    splitViewController.preferredDisplayMode = .allVisible
     return splitViewController
   }()
 
-  func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
-    let window = UIWindow(frame: UIScreen.mainScreen().bounds)
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    let window = UIWindow(frame: UIScreen.main.bounds)
     self.window = window
     window.rootViewController = self.splitViewController
 
-    self.splitViewController.viewControllers = createContainersForSplitViewController(splitViewController,
+    self.splitViewController.viewControllers = createContainersForSplitViewController(splitViewController: splitViewController,
       primaryViewControllers: [TableViewController()],
       secondaryViewControllers: [EmptyStateViewController()])
 
